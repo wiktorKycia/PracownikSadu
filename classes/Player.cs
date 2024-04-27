@@ -10,10 +10,13 @@ namespace PracownikSadu.classes
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        public int Money { get; set; }
         public Player(string name, int age)
         {
             Name = name;
             Age = age;
+            Money = 0;
         }
+
     }
 }
