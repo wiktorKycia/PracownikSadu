@@ -7,5 +7,11 @@ namespace PracownikSadu
         {
             
         }
+        static string GetUserInput(string message)
+        {
+            Console.Write(message);
+            string? result = Console.ReadLine();
+            return result ?? "Nameless";
+        }
     }
 }
