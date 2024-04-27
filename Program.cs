@@ -15,6 +15,14 @@ namespace PracownikSadu
             else
             {
                 int money = GetUserInt("What is your starting money? ");
+                if (money < 0)
+                {
+                    Player player = new Player(name, age);
+                }
+                else
+                {
+                    Player player = new Player(name, age, money);
+                }
             }
         }
         static string GetUserInput(string message)
