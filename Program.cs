@@ -39,6 +39,12 @@ namespace PracownikSadu
             Console.WriteLine("4. See job offers");
             Console.WriteLine("5. Set up own business");
             Console.WriteLine("6. Exit game");
+            int input = GetUserInt("");
+            while(!(input > 0 && input < 7))
+            {
+                input = GetUserInt("Please, give me a number between 1 and 6: ");
+            }
+
         }
 
         static string GetUserInput(string message)
