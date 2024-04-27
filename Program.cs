@@ -32,6 +32,13 @@ namespace PracownikSadu
         {
             Console.Clear();
             Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
+            Console.WriteLine("Choose one option from the list: ");
+            Console.WriteLine("1. Next turn");
+            Console.WriteLine("2. Go to work");
+            Console.WriteLine("3. See your current job");
+            Console.WriteLine("4. See job offers");
+            Console.WriteLine("5. Set up own business");
+            Console.WriteLine("6. Exit game");
         }
 
         static string GetUserInput(string message)
