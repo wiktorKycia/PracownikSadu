@@ -11,7 +11,7 @@ namespace PracownikSadu
         {
             Console.Write(message);
             string? result = Console.ReadLine();
-            return result ?? "Nameless";
+            return result ?? "";
         }
     }
 }
