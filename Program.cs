@@ -8,28 +8,30 @@ namespace PracownikSadu
             Console.WriteLine("Welcome in my game!");
             string name = GetUserInput("How would you like to be called? ");
             int age = GetUserInt("How old are you? (you can pass nothing, then 18 will be assigned) ");
+            Player player;
             if(age < 18)
             {
-                Player player = new Player(name);
+                player = new Player(name);
             }
             else
             {
                 int money = GetUserInt("What is your starting money? ");
                 if (money < 0)
                 {
-                    Player player = new Player(name, age);
+                    player = new Player(name, age);
                 }
                 else
                 {
-                    Player player = new Player(name, age, money);
+                    player = new Player(name, age, money);
                 }
             }
-            DisplayMainMenu();
+            DisplayMainMenu(player);
         }
 
-        private static void DisplayMainMenu()
+        private static void DisplayMainMenu(Player player)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
         }
 
         static string GetUserInput(string message)
