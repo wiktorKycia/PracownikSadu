@@ -15,7 +15,7 @@ namespace PracownikSadu
             string? result = Console.ReadLine();
             return result ?? "";
         }
-        static int GetUserInt(string message)
+        static int GetUserAge(string message)
         {
             int result;
             Console.Write(message);
