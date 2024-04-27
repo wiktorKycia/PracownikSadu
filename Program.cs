@@ -24,7 +24,14 @@ namespace PracownikSadu
                     Player player = new Player(name, age, money);
                 }
             }
+            DisplayMainMenu();
         }
+
+        private static void DisplayMainMenu()
+        {
+            throw new NotImplementedException();
+        }
+
         static string GetUserInput(string message)
         {
             Console.Write(message);
