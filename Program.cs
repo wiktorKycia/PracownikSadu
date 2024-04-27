@@ -1,4 +1,5 @@
-﻿namespace PracownikSadu
+﻿using PracownikSadu.classes;
+namespace PracownikSadu
 {
     internal class Program
     {
