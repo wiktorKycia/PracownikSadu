@@ -7,7 +7,11 @@ namespace PracownikSadu
         {
             Console.WriteLine("Welcome in my game!");
             string name = GetUserInput("How would you like to be called? ");
-
+            int age = GetUserInt("How old are you? (you can pass nothing, then 18 will be assigned) ");
+            if(age == 0)
+            {
+                Player player = new Player(name);
+            }
         }
         static string GetUserInput(string message)
         {
@@ -15,7 +19,7 @@ namespace PracownikSadu
             string? result = Console.ReadLine();
             return result ?? "";
         }
-        static int GetUserAge(string message)
+        static int GetUserInt(string message)
         {
             int result;
             Console.Write(message);
@@ -24,20 +28,12 @@ namespace PracownikSadu
                 try
                 {
                     result = int.Parse(Console.ReadLine());
-                    if (result < 18)
-                    {
-                        Console.WriteLine("You are too young for getting a job!");
-                    }
-                    else if (result > 65)
-                    {
-                        Console.WriteLine("Go on retirement old man!");
-                    }
                     return result;
                 }
                 catch (OverflowException e)
                 {
                     Console.WriteLine($"{e.Message}");
-                    Console.WriteLine("Try to pass a value that is between 18 and 65");
+                    Console.WriteLine($"Try to pass a value that is between {int.MinValue} and {int.MaxValue}");
                 }
                 catch (FormatException e)
                 {
