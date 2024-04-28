@@ -23,6 +23,9 @@ namespace PracownikSadu.classes
             {
                 message.Display();
             }
+            //Messages.RemoveAll(m => messagesToShow.Contains(m));
+            Messages.RemoveAll(messagesToShow.Contains);
+            messagesToShow.Clear();
         }
         public void CreateNewMessage(string message)
         {
