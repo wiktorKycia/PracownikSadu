@@ -12,5 +12,18 @@ namespace PracownikSadu.classes
         public ConsoleColor Color { get; set; }
         public int? TurnDisplay { get; set; } = null;
 
+        public Info(string message)
+        {
+            Message = message;
+            Color = ConsoleColor.White;
+        }
+        public Info(string message, ConsoleColor color):this(message)
+        {
+            Color = color;
+        }
+        public Info(string message, ConsoleColor color, int turnDisplay) : this(message, color)
+        {
+            TurnDisplay = turnDisplay;
+        }
     }
 }
