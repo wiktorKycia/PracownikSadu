@@ -85,9 +85,12 @@ namespace PracownikSadu
                 case 3:
                     if (player.Job is not null)
                     {
-                        Console.WriteLine($"You work at: {player.Job.Name}");
-                        Console.WriteLine($"You have a stable salary of ${player.Job.Salary}");
-                        Console.WriteLine($"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
+                        infoHandler.CreateNewMessage($"You work at: {player.Job.Name}\n" +
+                            $"You have a stable salary of ${player.Job.Salary}\n" +
+                            $"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
+                        //Console.WriteLine($"You work at: {player.Job.Name}");
+                        //Console.WriteLine($"You have a stable salary of ${player.Job.Salary}");
+                        //Console.WriteLine($"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
                     }
                     break;
                 case 4:
