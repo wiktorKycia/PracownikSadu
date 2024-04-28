@@ -50,6 +50,7 @@ namespace PracownikSadu
         {
             Console.Clear();
             Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
+            infoHandler.ShowMessages(turn);
             Console.WriteLine("Choose one option from the list: ");
             Console.WriteLine("1. Next turn");
             Console.WriteLine("2. Go to work");
