@@ -17,6 +17,11 @@ namespace PracownikSadu.classes
         public void ShowMessages(int turn)
         {
             List<Info> messagesToShow = Messages.Where(m => m.TurnDisplay == turn).ToList();
+            Console.WriteLine("Messages: ");
+            foreach (Info message in messagesToShow)
+            {
+                message.Display();
+            }
         }
     }
 }
