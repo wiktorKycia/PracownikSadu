@@ -8,5 +8,15 @@ namespace PracownikSadu.classes
 {
     internal class InfoHandler
     {
+        public List<Info> Messages { get; set; }
+
+        public InfoHandler()
+        {
+            Messages = new List<Info>();
+        }
+        public ShowMessages(int turn)
+        {
+
+        }
     }
 }
