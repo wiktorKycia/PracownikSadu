@@ -9,11 +9,18 @@ namespace PracownikSadu
             Console.WriteLine("Welcome in my game!");
             string name = GetUserInput("How would you like to be called? ");
             int age;
+            string? ageInput;
             do
             {
                 Console.Write($"How old are you, {name}? (pass a number between 18 and 65)");
+                ageInput = Console.ReadLine();
+                if (ageInput is null || ageInput == "")
+                {
+                    age = 18;
+                    break;
+                }
             }
-            while (!int.TryParse(Console.ReadLine() ?? "0", out age) || age > 65 || age < 18);
+            while (!int.TryParse(ageInput ?? "18", out age) || age > 65 || age < 18);
             Player player;
             if(age < 18)
             {
