@@ -66,7 +66,9 @@ namespace PracownikSadu
                     DisplayMainMenu(player);
                     break;
                 case 6:
+                    running = false;
                     return;
+                default: return;
             }
         }
 
