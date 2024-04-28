@@ -11,14 +11,16 @@ namespace PracownikSadu.classes
         public int Salary { get; set; }
         public int BonusMin { get; set; }
         public int BonusMax { get; set; }
+        public string Name { get; set; }
 
-        public Job(int salary, int bonusMax)
+        public Job(string name, int salary, int bonusMax)
         {
+            Name = name;
             Salary = salary;
             BonusMin = 0;
             BonusMax = bonusMax;
         }
-        public Job(int salary, int bonusMin, int bonusMax) : this(salary, bonusMax)
+        public Job(string name, int salary, int bonusMin, int bonusMax) : this(name, salary, bonusMax)
         {
             BonusMin = bonusMin;
         }
