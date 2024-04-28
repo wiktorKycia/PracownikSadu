@@ -4,6 +4,8 @@ namespace PracownikSadu
     internal class Program
     {
         public static bool running = true;
+        public static int turn = 1;
+        public static InfoHandler infoHandler = new InfoHandler();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
@@ -48,6 +50,7 @@ namespace PracownikSadu
         {
             Console.Clear();
             Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
+            infoHandler.ShowMessages(turn);
             Console.WriteLine("Choose one option from the list: ");
             Console.WriteLine("1. Next turn");
             Console.WriteLine("2. Go to work");
@@ -63,20 +66,37 @@ namespace PracownikSadu
             switch (input)
             {
                 case 1:
-                    player.Money += 20;
+                    if (player.Job is not null)
+                    {
+                        player.Money += player.Job.Salary;
+                    }
+                    turn++;
                     break;
                 case 2:
-                    DisplayMainMenu(player);
+                    if(player.Job is not null)
+                    {
+                        player.Money += player.Job.GetBonus();
+                    }
+                    else
+                    {
+                        infoHandler.CreateNewMessage("You are unemployeed, thus you cannot work! Apply for a job", ConsoleColor.Yellow);
+                    }
                     break;
                 case 3:
-                    DisplayMainMenu(player);
+                    if (player.Job is not null)
+                    {
+                        infoHandler.CreateNewMessage($"You work at: {player.Job.Name}\n" +
+                            $"You have a stable salary of ${player.Job.Salary}\n" +
+                            $"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
+                        //Console.WriteLine($"You work at: {player.Job.Name}");
+                        //Console.WriteLine($"You have a stable salary of ${player.Job.Salary}");
+                        //Console.WriteLine($"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
+                    }
                     break;
                 case 4:
-                    DisplayMainMenu(player);
-                    break;
+                    return;
                 case 5:
-                    DisplayMainMenu(player);
-                    break;
+                    return;
                 case 6:
                     running = false;
                     return;
