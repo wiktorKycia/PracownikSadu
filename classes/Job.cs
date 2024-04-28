@@ -27,5 +27,9 @@ namespace PracownikSadu.classes
             Random random = new Random();
             return random.Next(BonusMin, BonusMax);
         }
+        public void PresentJobOffer(string message)
+        {
+            Console.WriteLine("\n" + message + "\n");
+        }
     }
 }
