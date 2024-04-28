@@ -3,28 +3,75 @@ namespace PracownikSadu
 {
     internal class Program
     {
+        public static bool running = true;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
             string name = GetUserInput("How would you like to be called? ");
             int age = GetUserInt("How old are you? (you can pass nothing, then 18 will be assigned) ");
+            Player player;
             if(age < 18)
             {
-                Player player = new Player(name);
+                player = new Player(name);
             }
             else
             {
                 int money = GetUserInt("What is your starting money? ");
                 if (money < 0)
                 {
-                    Player player = new Player(name, age);
+                    player = new Player(name, age);
                 }
                 else
                 {
-                    Player player = new Player(name, age, money);
+                    player = new Player(name, age, money);
                 }
             }
+            while(running)
+            {
+                DisplayMainMenu(player);
+            }
         }
+
+        private static void DisplayMainMenu(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
+            Console.WriteLine("Choose one option from the list: ");
+            Console.WriteLine("1. Next turn");
+            Console.WriteLine("2. Go to work");
+            Console.WriteLine("3. See your current job");
+            Console.WriteLine("4. See job offers");
+            Console.WriteLine("5. Set up own business");
+            Console.WriteLine("6. Exit game");
+            int input = GetUserInt("");
+            while(!(input > 0 && input < 7))
+            {
+                input = GetUserInt("Please, give me a number between 1 and 6: ");
+            }
+            switch (input)
+            {
+                case 1:
+                    player.Money += 20;
+                    break;
+                case 2:
+                    DisplayMainMenu(player);
+                    break;
+                case 3:
+                    DisplayMainMenu(player);
+                    break;
+                case 4:
+                    DisplayMainMenu(player);
+                    break;
+                case 5:
+                    DisplayMainMenu(player);
+                    break;
+                case 6:
+                    running = false;
+                    return;
+                default: return;
+            }
+        }
+
         static string GetUserInput(string message)
         {
             Console.Write(message);
