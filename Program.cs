@@ -63,7 +63,10 @@ namespace PracownikSadu
             switch (input)
             {
                 case 1:
-                    player.Money += 20;
+                    if (player.Job is not null)
+                    {
+                        player.Money += player.Job.Salary;
+                    }
                     break;
                 case 2:
                     DisplayMainMenu(player);
