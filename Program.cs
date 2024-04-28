@@ -5,6 +5,7 @@ namespace PracownikSadu
     {
         public static bool running = true;
         public static int turn = 1;
+        public static InfoHandler infoHandler = new InfoHandler();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
