@@ -83,11 +83,9 @@ namespace PracownikSadu
                     }
                     break;
                 case 4:
-                    DisplayMainMenu(player);
-                    break;
+                    return;
                 case 5:
-                    DisplayMainMenu(player);
-                    break;
+                    return;
                 case 6:
                     running = false;
                     return;
