@@ -44,7 +44,26 @@ namespace PracownikSadu
             {
                 input = GetUserInt("Please, give me a number between 1 and 6: ");
             }
-
+            switch (input)
+            {
+                case 1:
+                    player.Money += 20;
+                    break;
+                case 2:
+                    DisplayMainMenu(player);
+                    break;
+                case 3:
+                    DisplayMainMenu(player);
+                    break;
+                case 4:
+                    DisplayMainMenu(player);
+                    break;
+                case 5:
+                    DisplayMainMenu(player);
+                    break;
+                case 6:
+                    return;
+            }
         }
 
         static string GetUserInput(string message)
