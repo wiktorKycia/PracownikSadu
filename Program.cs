@@ -3,6 +3,7 @@ namespace PracownikSadu
 {
     internal class Program
     {
+        public static bool running = true;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
@@ -25,7 +26,10 @@ namespace PracownikSadu
                     player = new Player(name, age, money);
                 }
             }
-            DisplayMainMenu(player);
+            while(running)
+            {
+                DisplayMainMenu(player);
+            }
         }
 
         private static void DisplayMainMenu(Player player)
