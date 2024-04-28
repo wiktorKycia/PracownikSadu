@@ -25,5 +25,11 @@ namespace PracownikSadu.classes
         {
             TurnDisplay = turnDisplay;
         }
+        public void Display()
+        {
+            Console.ForegroundColor = Color;
+            Console.WriteLine(Message);
+            Console.ResetColor();
+        }
     }
 }
