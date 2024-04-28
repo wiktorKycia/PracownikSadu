@@ -18,11 +18,14 @@ namespace PracownikSadu.classes
         {
             List<Info> messagesToShow = Messages.Where(m => m.TurnDisplay == turn).ToList();
             messagesToShow.Concat(Messages.Where(m => m.TurnDisplay is null).ToList());
-            Console.WriteLine("Messages: ");
+            Console.WriteLine("\nMessages: \n");
             foreach (Info message in messagesToShow)
             {
+                Console.WriteLine();
                 message.Display();
+                Console.WriteLine();
             }
+            Console.WriteLine();
             //Messages.RemoveAll(m => messagesToShow.Contains(m));
             Messages.RemoveAll(messagesToShow.Contains);
             messagesToShow.Clear();
