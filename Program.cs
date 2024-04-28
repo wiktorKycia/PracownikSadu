@@ -11,9 +11,9 @@ namespace PracownikSadu
             int age;
             do
             {
-                Console.Write($"How old are you, {name}? ");
+                Console.Write($"How old are you, {name}? (pass a number between 18 and 65)");
             }
-            while (!int.TryParse(Console.ReadLine() ?? "0", out age) || age > 65);
+            while (!int.TryParse(Console.ReadLine() ?? "0", out age) || age > 65 || age < 18);
             Player player;
             if(age < 18)
             {
