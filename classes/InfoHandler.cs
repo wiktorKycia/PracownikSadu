@@ -8,7 +8,7 @@ namespace PracownikSadu.classes
 {
     internal class InfoHandler
     {
-        public List<Info> Messages { get; set; }
+        public List<Info> Messages { get; set; } 
 
         public InfoHandler()
         {
@@ -17,13 +17,12 @@ namespace PracownikSadu.classes
         public void ShowMessages(int turn)
         {
             List<Info> messagesToShow = Messages.Where(m => m.TurnDisplay == turn).ToList();
-            messagesToShow.Concat(Messages.Where(m => m.TurnDisplay is null).ToList());
-            Console.WriteLine("\nMessages: \n");
+            messagesToShow = messagesToShow.Concat(Messages.Where(m => m.TurnDisplay is null).ToList()).ToList();
+            Console.WriteLine("\nMessages: ");
             foreach (Info message in messagesToShow)
             {
                 Console.WriteLine();
                 message.Display();
-                Console.WriteLine();
             }
             Console.WriteLine();
             //Messages.RemoveAll(m => messagesToShow.Contains(m));
