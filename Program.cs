@@ -77,6 +77,10 @@ namespace PracownikSadu
                     {
                         player.Money += player.Job.GetBonus();
                     }
+                    else
+                    {
+                        infoHandler.CreateNewMessage("You are unemployeed, thus you cannot work! Apply for a job", ConsoleColor.Yellow);
+                    }
                     break;
                 case 3:
                     if (player.Job is not null)
