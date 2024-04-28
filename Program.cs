@@ -12,7 +12,7 @@ namespace PracownikSadu
             string? ageInput;
             do
             {
-                Console.Write($"How old are you, {name}? (pass a number between 18 and 65)");
+                Console.Write($"How old are you, {name}? (pass a number between 18 and 65) ");
                 ageInput = Console.ReadLine();
                 if (ageInput is null || ageInput == "")
                 {
