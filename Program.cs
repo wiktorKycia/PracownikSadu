@@ -8,7 +8,12 @@ namespace PracownikSadu
         {
             Console.WriteLine("Welcome in my game!");
             string name = GetUserInput("How would you like to be called? ");
-            int age = GetUserInt("How old are you? (you can pass nothing, then 18 will be assigned) ");
+            int age;
+            do
+            {
+                age = GetUserInt("How old are you? (you can pass nothing, then 18 will be assigned) ");
+            }
+            while (age > 65);
             Player player;
             if(age < 18)
             {
