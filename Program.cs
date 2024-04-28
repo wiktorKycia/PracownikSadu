@@ -13,7 +13,7 @@ namespace PracownikSadu
             {
                 Console.Write($"How old are you, {name}? ");
             }
-            while (int.TryParse(Console.ReadLine() ?? "0", out age) || age > 65);
+            while (!int.TryParse(Console.ReadLine() ?? "0", out age) || age > 65);
             Player player;
             if(age < 18)
             {
