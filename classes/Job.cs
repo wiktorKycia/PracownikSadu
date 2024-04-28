@@ -18,6 +18,9 @@ namespace PracownikSadu.classes
             BonusMin = 0;
             BonusMax = bonusMax;
         }
-
+        public Job(int salary, int bonusMin, int bonusMax) : this(salary, bonusMax)
+        {
+            BonusMin = bonusMin;
+        }
     }
 }
