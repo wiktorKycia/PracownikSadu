@@ -14,9 +14,9 @@ namespace PracownikSadu.classes
         {
             Messages = new List<Info>();
         }
-        public ShowMessages(int turn)
+        public void ShowMessages(int turn)
         {
-
+            List<Info> messagesToShow = Messages.Where(m => m.TurnDisplay == turn).ToList();
         }
     }
 }
