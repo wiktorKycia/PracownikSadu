@@ -69,7 +69,10 @@ namespace PracownikSadu
                     }
                     break;
                 case 2:
-                    DisplayMainMenu(player);
+                    if(player.Job is not null)
+                    {
+                        player.Money += player.Job.GetBonus();
+                    }
                     break;
                 case 3:
                     DisplayMainMenu(player);
