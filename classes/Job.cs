@@ -31,7 +31,7 @@ namespace PracownikSadu.classes
         }
         public void PresentJobOffer(string message)
         {
-            Console.WriteLine("\n" + message + "\n");
+            Console.WriteLine($"{Name}:\n" + message + "\n");
         }
     }
 }
