@@ -22,5 +22,10 @@ namespace PracownikSadu.classes
         {
             BonusMin = bonusMin;
         }
+        public int GetBonus()
+        {
+            Random random = new Random();
+            return random.Next(BonusMin, BonusMax);
+        }
     }
 }
