@@ -4,6 +4,7 @@ namespace PracownikSadu
     internal class Program
     {
         public static bool running = true;
+        public static int turn = 1;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
@@ -67,6 +68,7 @@ namespace PracownikSadu
                     {
                         player.Money += player.Job.Salary;
                     }
+                    turn++;
                     break;
                 case 2:
                     if(player.Job is not null)
