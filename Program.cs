@@ -11,9 +11,9 @@ namespace PracownikSadu
             int age;
             do
             {
-                age = GetUserInt("How old are you? (you can pass nothing, then 18 will be assigned) ");
+                Console.Write($"How old are you, {name}? ");
             }
-            while (age > 65);
+            while (int.TryParse(Console.ReadLine() ?? "0", out age) || age > 65);
             Player player;
             if(age < 18)
             {
