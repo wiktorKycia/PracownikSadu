@@ -34,7 +34,10 @@ namespace PracownikSadu.classes
         {
             Console.WriteLine($"{Name}:\n" + Presentation);
             Console.WriteLine($"We offer the stable salary of ${Salary}");
-            Console.WriteLine($"We also offer bonuses from ${BonusMin} up to ${BonusMax} \n");
+            if (BonusMin!=0)
+                Console.WriteLine($"We also offer bonuses from ${BonusMin} up to ${BonusMax} \n");
+            else
+                Console.WriteLine($"We also offer bonuses up to ${BonusMax} \n");
         }
     }
 }
