@@ -6,6 +6,10 @@ namespace PracownikSadu
         public static bool running = true;
         public static int turn = 1;
         public static InfoHandler infoHandler = new InfoHandler();
+        public static Dictionary<int, Job> jobs = new Dictionary<int, Job>()
+        {
+            {1, new Job("name", 1000, 200) }
+        };
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
@@ -101,6 +105,15 @@ namespace PracownikSadu
                     running = false;
                     return;
                 default: return;
+            }
+        }
+        static void ShowJobOffers()
+        {
+            Console.Clear();
+            Console.WriteLine("Job offers: ");
+            foreach (KeyValuePair<int, Job> job in jobs)
+            {
+                Console.Write($"{job.Key}. {job.Value.PresentJobOffer}");
             }
         }
 
