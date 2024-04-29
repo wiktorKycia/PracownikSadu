@@ -98,6 +98,7 @@ namespace PracownikSadu
                     }
                     break;
                 case 4:
+                    ShowJobOffers();
                     return;
                 case 5:
                     return;
@@ -113,8 +114,10 @@ namespace PracownikSadu
             Console.WriteLine("Job offers: ");
             foreach (KeyValuePair<int, Job> job in jobs)
             {
-                Console.Write($"{job.Key}. {job.Value.PresentJobOffer}");
+                Console.Write($"{job.Key}. ");
+                job.Value.PresentJobOffer("message");
             }
+            Console.ReadLine();
         }
 
         static string GetUserInput(string message)
