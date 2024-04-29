@@ -8,7 +8,7 @@ namespace PracownikSadu
         public static InfoHandler infoHandler = new InfoHandler();
         public static Dictionary<int, Job> jobs = new Dictionary<int, Job>()
         {
-            {1, new Job("name", 1000, 200) }
+            {1, new Job("name", 1000, 200, "please come to our orchard") }
         };
         static void Main(string[] args)
         {
