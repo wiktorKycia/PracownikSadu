@@ -32,7 +32,9 @@ namespace PracownikSadu.classes
         }
         public void PresentJobOffer()
         {
-            Console.WriteLine($"{Name}:\n" + Presentation + "\n");
+            Console.WriteLine($"{Name}:\n" + Presentation);
+            Console.WriteLine($"We offer the stable salary of ${Salary}");
+            Console.WriteLine($"We also offer bonuses from ${BonusMin} up to ${BonusMax} \n");
         }
     }
 }
