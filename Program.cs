@@ -115,7 +115,7 @@ namespace PracownikSadu
             foreach (KeyValuePair<int, Job> job in jobs)
             {
                 Console.Write($"{job.Key}. ");
-                job.Value.PresentJobOffer("message");
+                job.Value.PresentJobOffer();
             }
             Console.ReadLine();
         }
