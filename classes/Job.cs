@@ -12,6 +12,7 @@ namespace PracownikSadu.classes
         public int BonusMin { get; set; }
         public int BonusMax { get; set; }
         public string Name { get; set; }
+        public string Presentation { get ; set; }
 
         public Job(string name, int salary, int bonusMax)
         {
@@ -29,9 +30,9 @@ namespace PracownikSadu.classes
             Random random = new Random();
             return random.Next(BonusMin, BonusMax);
         }
-        public void PresentJobOffer(string message)
+        public void PresentJobOffer()
         {
-            Console.WriteLine($"{Name}:\n" + message + "\n");
+            Console.WriteLine($"{Name}:\n" + Presentation + "\n");
         }
     }
 }
