@@ -112,8 +112,15 @@ namespace PracownikSadu
                         }
                         else if (choice > 0)
                         {
-                            player.Job = jobs[choice];
-                            break;
+                            if(jobs.ContainsKey(choice))
+                            {
+                                player.Job = jobs[choice];
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Try to pass a number between 0 and {jobs.Count}");
+                            }
                         }
                         else
                         {
