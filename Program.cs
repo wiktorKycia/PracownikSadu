@@ -111,7 +111,7 @@ namespace PracownikSadu
                         int choice = GetUserInt("To which job you wanna apply? (0 for exit)");
                         if (choice == 0)
                         {
-                            return;
+                            break;
                         }
                         else if (choice > 0)
                         {
