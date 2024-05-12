@@ -8,7 +8,10 @@ namespace PracownikSadu
         public static InfoHandler infoHandler = new InfoHandler();
         public static Dictionary<int, Job> jobs = new Dictionary<int, Job>()
         {
-            {1, new Job("name", 1000, 200) }
+            {1, new Job("name", 1000, 200, "please come to our orchard") },
+            {2, new Job("name", 500, 750, "please come to our orchard") },
+            {3, new Job("name", 5000, 0, "please come to our orchard") },
+            {4, new Job("name", 1500, 600, "please come to our orchard") }
         };
         static void Main(string[] args)
         {
@@ -96,8 +99,38 @@ namespace PracownikSadu
                         //Console.WriteLine($"You have a stable salary of ${player.Job.Salary}");
                         //Console.WriteLine($"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
                     }
+                    else
+                    {
+                        infoHandler.CreateNewMessage("You are unemployeed. Please, apply for a job!", ConsoleColor.Yellow);
+                    }
                     break;
                 case 4:
+                    ShowJobOffers();
+                    do
+                    {
+                        int choice = GetUserInt("To which job you wanna apply? (0 for exit)");
+                        if (choice == 0)
+                        {
+                            break;
+                        }
+                        else if (choice > 0)
+                        {
+                            if(jobs.ContainsKey(choice))
+                            {
+                                player.Job = jobs[choice];
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Try to pass a number between 0 and {jobs.Count}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("you must pick a positive number!");
+                        }
+                    } while (true);
+                    
                     return;
                 case 5:
                     return;
@@ -113,7 +146,8 @@ namespace PracownikSadu
             Console.WriteLine("Job offers: ");
             foreach (KeyValuePair<int, Job> job in jobs)
             {
-                Console.Write($"{job.Key}. {job.Value.PresentJobOffer}");
+                Console.Write($"{job.Key}. ");
+                job.Value.PresentJobOffer();
             }
         }
 
