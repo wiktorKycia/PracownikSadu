@@ -103,6 +103,24 @@ namespace PracownikSadu
                     break;
                 case 4:
                     ShowJobOffers();
+                    do
+                    {
+                        int choice = GetUserInt("To which job you wanna apply? (0 for exit)");
+                        if (choice == 0)
+                        {
+                            return;
+                        }
+                        else if (choice > 0)
+                        {
+                            player.Job = jobs[choice];
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("you must pick a positive number!");
+                        }
+                    } while (true);
+                    
                     return;
                 case 5:
                     return;
