@@ -96,6 +96,10 @@ namespace PracownikSadu
                         //Console.WriteLine($"You have a stable salary of ${player.Job.Salary}");
                         //Console.WriteLine($"You can get bonus money for extraordinary work, from ${player.Job.BonusMin}, up to ${player.Job.BonusMax}");
                     }
+                    else
+                    {
+                        infoHandler.CreateNewMessage("You are unemployeed. Please, apply for a job!", ConsoleColor.Yellow);
+                    }
                     break;
                 case 4:
                     ShowJobOffers();
