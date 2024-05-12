@@ -146,7 +146,6 @@ namespace PracownikSadu
                 Console.Write($"{job.Key}. ");
                 job.Value.PresentJobOffer();
             }
-            Console.ReadLine();
         }
 
         static string GetUserInput(string message)
