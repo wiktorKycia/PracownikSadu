@@ -19,15 +19,19 @@ namespace PracownikSadu.classes
         public int ExperienceRequirements { get; set; }
         public int SkillRequirements { get; set; }
 
-        public Job(string name, int salary, int bonusMax, string presentation)
+        public Job(string name, int salary, int bonusMax, string presentation, int experienceGain, int skillGain, int expRequirements, int skillRequirements)
         {
             Name = name;
             Salary = salary;
             BonusMin = 0;
             BonusMax = bonusMax;
             Presentation = presentation;
+            ExperienceGain = experienceGain;
+            SkillGain = skillGain;
+            ExperienceRequirements = expRequirements;
+            SkillRequirements = skillRequirements;
         }
-        public Job(string name, int salary, int bonusMin, int bonusMax, string presentation) : this(name, salary, bonusMax, presentation)
+        public Job(string name, int salary, int bonusMin, int bonusMax, string presentation, int experienceGain, int skillGain, int expRequirements, int skillRequirements) : this(name, salary, bonusMax, presentation, experienceGain, skillGain, expRequirements, skillRequirements)
         {
             BonusMin = bonusMin;
         }
