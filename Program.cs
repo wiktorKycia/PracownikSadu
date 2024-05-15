@@ -86,6 +86,7 @@ namespace PracownikSadu
                     if (player.Job is not null)
                     {
                         player.Money += player.Job.Salary;
+                        player.Experience += player.Job.ExperienceGain;
                     }
                     turn++;
                     break;
@@ -93,6 +94,7 @@ namespace PracownikSadu
                     if(player.Job is not null)
                     {
                         player.Money += player.Job.GetBonus();
+                        player.Experience += player.Job.ExperienceGain;
                     }
                     else
                     {
@@ -140,6 +142,7 @@ namespace PracownikSadu
                                 else
                                 {
                                     player.Job = jobs[choice];
+                                    player.Skill += jobs[choice].SkillGain;
                                     break;
                                 }
                             }
