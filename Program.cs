@@ -8,10 +8,19 @@ namespace PracownikSadu
         public static InfoHandler infoHandler = new InfoHandler();
         public static Dictionary<int, Job> jobs = new Dictionary<int, Job>()
         {
-            {1, new Job("name", 1000, 200, "please come to our orchard") },
-            {2, new Job("name", 500, 750, "please come to our orchard") },
-            {3, new Job("name", 5000, 0, "please come to our orchard") },
-            {4, new Job("name", 1500, 600, "please come to our orchard") }
+            {1, new Job("name", 1000, 200, "please come to our orchard", 10, 20, 0, 0) },
+            {2, new Job("name", 500, 750, "please come to our orchard", 20, 150, 0, 50) },
+            {3, new Job("name", 5000, 0, "please come to our orchard", 40, 10, 500, 150) },
+            {4, new Job("name", 1500, 600, "please come to our orchard", 30, 50, 450, 200) }
+        };
+        public static List<Training> Trainings = new List<Training>()
+        {
+            new Training("Apple collecting tutorial", 5, 1),
+            new Training("Putting apples to the basket tutorial", 2, 1),
+            new Training("Collecting apples from higher trees using a ladder", 15, 2, 10, 3),
+            new Training("Checking if the apples are ok to eat", 25, 3, 15, 5),
+            new Training("Planting your own trees", 50, 5, 500, 7),
+            new Training("How to water a tree?", 20, 1, 5)
         };
         static void Main(string[] args)
         {
@@ -56,19 +65,20 @@ namespace PracownikSadu
         private static void DisplayMainMenu(Player player)
         {
             Console.Clear();
-            Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
+            player.ShowStatistics();
             infoHandler.ShowMessages(turn);
             Console.WriteLine("Choose one option from the list: ");
             Console.WriteLine("1. Next turn");
             Console.WriteLine("2. Go to work");
             Console.WriteLine("3. See your current job");
             Console.WriteLine("4. See job offers");
-            Console.WriteLine("5. Set up own business");
-            Console.WriteLine("6. Exit game");
+            Console.WriteLine("5. Go on employee training");
+            Console.WriteLine("6. Set up own business");
+            Console.WriteLine("7. Exit game");
             int input = GetUserInt("");
-            while(!(input > 0 && input < 7))
+            while(!(input > 0 && input < 8))
             {
-                input = GetUserInt("Please, give me a number between 1 and 6: ");
+                input = GetUserInt("Please, give me a number between 1 and 7: ");
             }
             switch (input)
             {
@@ -76,6 +86,7 @@ namespace PracownikSadu
                     if (player.Job is not null)
                     {
                         player.Money += player.Job.Salary;
+                        player.Experience += player.Job.ExperienceGain;
                     }
                     turn++;
                     break;
@@ -83,6 +94,7 @@ namespace PracownikSadu
                     if(player.Job is not null)
                     {
                         player.Money += player.Job.GetBonus();
+                        player.Experience += player.Job.ExperienceGain;
                     }
                     else
                     {
@@ -117,8 +129,22 @@ namespace PracownikSadu
                         {
                             if(jobs.ContainsKey(choice))
                             {
-                                player.Job = jobs[choice];
-                                break;
+                                if (jobs[choice].SkillRequirements > player.Skill)
+                                {
+                                    Console.WriteLine("You do not meet the skill requirements yet");
+                                    Console.WriteLine($"You have {player.Skill}, but {jobs[choice].SkillRequirements} is required");
+                                }
+                                else if (jobs[choice].ExperienceRequirements > player.Experience)
+                                {
+                                    Console.WriteLine("You do not meet the experience requirements yet");
+                                    Console.WriteLine($"You have {player.Experience}, but {jobs[choice].ExperienceRequirements} is required");
+                                }
+                                else
+                                {
+                                    player.Job = jobs[choice];
+                                    player.Skill += jobs[choice].SkillGain;
+                                    break;
+                                }
                             }
                             else
                             {
@@ -135,6 +161,40 @@ namespace PracownikSadu
                 case 5:
                     return;
                 case 6:
+                    foreach (Training training in Trainings)
+                    {
+                        training.PresentOffer();
+                        Console.WriteLine();
+                    }
+                    do
+                    {
+                        int choice = GetUserInt("On which training do you wanna go? (0 for exit)");
+                        if (choice == 0)
+                        {
+                            break;
+                        }
+                        else if (choice > 0)
+                        {
+                            if (Trainings.Count >= choice)
+                            {
+                                player.Experience += Trainings[choice].ExpGain;
+                                player.Skill += Trainings[choice].SkillGain;
+                                player.Money -= Trainings[choice].Cost;
+                                turn += Trainings[choice].Turns;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Try to pass a number between 0 and {jobs.Count}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("you must pick a positive number!");
+                        }
+                    } while (true);
+                    return;
+                case 7:
                     running = false;
                     return;
                 default: return;
