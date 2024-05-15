@@ -8,10 +8,10 @@ namespace PracownikSadu
         public static InfoHandler infoHandler = new InfoHandler();
         public static Dictionary<int, Job> jobs = new Dictionary<int, Job>()
         {
-            {1, new Job("name", 1000, 200, "please come to our orchard") },
-            {2, new Job("name", 500, 750, "please come to our orchard") },
-            {3, new Job("name", 5000, 0, "please come to our orchard") },
-            {4, new Job("name", 1500, 600, "please come to our orchard") }
+            {1, new Job("name", 1000, 200, "please come to our orchard", 10, 20, 0, 0) },
+            {2, new Job("name", 500, 750, "please come to our orchard", 20, 150, 0, 50) },
+            {3, new Job("name", 5000, 0, "please come to our orchard", 40, 10, 500, 150) },
+            {4, new Job("name", 1500, 600, "please come to our orchard", 30, 50, 450, 200) }
         };
         public static List<Training> Trainings = new List<Training>()
         {
