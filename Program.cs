@@ -181,11 +181,12 @@ namespace PracownikSadu
                                 player.Skill += Trainings[choice].SkillGain;
                                 player.Money -= Trainings[choice].Cost;
                                 turn += Trainings[choice].Turns;
+                                Trainings.Remove(Trainings[choice]);
                                 break;
                             }
                             else
                             {
-                                Console.WriteLine($"Try to pass a number between 0 and {jobs.Count}");
+                                Console.WriteLine($"Try to pass a number between 0 and {Trainings.Count}");
                             }
                         }
                         else
