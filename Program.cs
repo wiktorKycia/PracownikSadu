@@ -127,8 +127,21 @@ namespace PracownikSadu
                         {
                             if(jobs.ContainsKey(choice))
                             {
-                                player.Job = jobs[choice];
-                                break;
+                                if (jobs[choice].SkillRequirements > player.Skill)
+                                {
+                                    Console.WriteLine("You do not meet the skill requirements yet");
+                                    Console.WriteLine($"You have {player.Skill}, but {jobs[choice].SkillRequirements} is required");
+                                }
+                                else if (jobs[choice].ExperienceRequirements > player.Experience)
+                                {
+                                    Console.WriteLine("You do not meet the experience requirements yet");
+                                    Console.WriteLine($"You have {player.Experience}, but {jobs[choice].ExperienceRequirements} is required");
+                                }
+                                else
+                                {
+                                    player.Job = jobs[choice];
+                                    break;
+                                }
                             }
                             else
                             {
