@@ -11,6 +11,8 @@ namespace PracownikSadu.classes
         public string Name { get; set; }
         public int Age { get; set; }
         public int Money { get; set; }
+        public int Experience { get; set; }
+        public int Skill { get; set; }
         public Job? Job { get; set; } = null;
         public Player(string name)
         {
