@@ -136,6 +136,7 @@ namespace PracownikSadu
                 case 5:
                     return;
                 case 6:
+                    
                     return;
                 case 7:
                     running = false;
