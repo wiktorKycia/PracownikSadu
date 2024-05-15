@@ -65,7 +65,7 @@ namespace PracownikSadu
         private static void DisplayMainMenu(Player player)
         {
             Console.Clear();
-            Console.WriteLine($"Player: {player.Name}\nYou are {player.Age} years old\nYou have ${player.Money}");
+            player.ShowStatistics();
             infoHandler.ShowMessages(turn);
             Console.WriteLine("Choose one option from the list: ");
             Console.WriteLine("1. Next turn");
