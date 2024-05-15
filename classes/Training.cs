@@ -21,5 +21,12 @@ namespace PracownikSadu.classes
             Cost = cost;
             Turns = turns;
         }
+        public void PresentOffer()
+        {
+            Console.WriteLine($"Training name: {Name}");
+            Console.WriteLine($"Skill gain: {SkillGain}");
+            Console.WriteLine($"Experience gain: {ExpGain}");
+            Console.WriteLine($"The training lasts {Turns} turns, and it costs: ${Cost}");
+        }
     }
 }
