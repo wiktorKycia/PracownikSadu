@@ -145,7 +145,38 @@ namespace PracownikSadu
                 case 5:
                     return;
                 case 6:
-                    
+                    foreach (Training training in Trainings)
+                    {
+                        training.PresentOffer();
+                        Console.WriteLine();
+                    }
+                    do
+                    {
+                        int choice = GetUserInt("On which training do you wanna go? (0 for exit)");
+                        if (choice == 0)
+                        {
+                            break;
+                        }
+                        else if (choice > 0)
+                        {
+                            if (Trainings.Count >= choice)
+                            {
+                                player.Experience += Trainings[choice].ExpGain;
+                                player.Skill += Trainings[choice].SkillGain;
+                                player.Money -= Trainings[choice].Cost;
+                                turn += Trainings[choice].Turns;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Try to pass a number between 0 and {jobs.Count}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("you must pick a positive number!");
+                        }
+                    } while (true);
                     return;
                 case 7:
                     running = false;
