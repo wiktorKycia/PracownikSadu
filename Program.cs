@@ -159,8 +159,7 @@ namespace PracownikSadu
                     
                     return;
                 case 5:
-                    return;
-                case 6:
+                    Console.Clear();
                     foreach (Training training in Trainings)
                     {
                         training.PresentOffer();
@@ -175,6 +174,7 @@ namespace PracownikSadu
                         }
                         else if (choice > 0)
                         {
+                            choice--;
                             if (Trainings.Count >= choice)
                             {
                                 player.Experience += Trainings[choice].ExpGain;
@@ -193,6 +193,8 @@ namespace PracownikSadu
                             Console.WriteLine("you must pick a positive number!");
                         }
                     } while (true);
+                    return;
+                case 6:
                     return;
                 case 7:
                     running = false;

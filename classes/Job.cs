@@ -47,14 +47,14 @@ namespace PracownikSadu.classes
             Console.WriteLine($"We offer the stable salary of ${Salary}");
             if (BonusMin > 0)
             {
-                Console.WriteLine($"We also offer bonuses from ${BonusMin} up to ${BonusMax} \n");
+                Console.WriteLine($"We also offer bonuses from ${BonusMin} up to ${BonusMax} ");
             }
             else
             {
-                Console.WriteLine($"We also offer bonuses up to ${BonusMax} \n");
+                Console.WriteLine($"We also offer bonuses up to ${BonusMax} ");
             }
             Console.WriteLine($"However, we require from you to have skill above {SkillRequirements}\n" +
-                $"And experience greater than {ExperienceRequirements}");
+                $"And experience greater than {ExperienceRequirements}\n");
         }
     }
 }
