@@ -67,9 +67,9 @@ namespace PracownikSadu
             Console.WriteLine("6. Set up own business");
             Console.WriteLine("7. Exit game");
             int input = GetUserInt("");
-            while(!(input > 0 && input < 7))
+            while(!(input > 0 && input < 8))
             {
-                input = GetUserInt("Please, give me a number between 1 and 6: ");
+                input = GetUserInt("Please, give me a number between 1 and 7: ");
             }
             switch (input)
             {
@@ -136,6 +136,8 @@ namespace PracownikSadu
                 case 5:
                     return;
                 case 6:
+                    return;
+                case 7:
                     running = false;
                     return;
                 default: return;
