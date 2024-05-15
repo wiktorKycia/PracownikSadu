@@ -13,6 +13,15 @@ namespace PracownikSadu
             {3, new Job("name", 5000, 0, "please come to our orchard") },
             {4, new Job("name", 1500, 600, "please come to our orchard") }
         };
+        public static List<Training> Trainings = new List<Training>()
+        {
+            new Training("Apple collecting tutorial", 5, 1),
+            new Training("Putting apples to the basket tutorial", 2, 1),
+            new Training("Collecting apples from higher trees using a ladder", 15, 2, 10, 3),
+            new Training("Checking if the apples are ok to eat", 25, 3, 15, 5),
+            new Training("Planting your own trees", 50, 5, 500, 7),
+            new Training("How to water a tree?", 20, 1, 5)
+        };
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome in my game!");
